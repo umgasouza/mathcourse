@@ -3,12 +3,12 @@
 #include <stdio.h>
 
 struct Point2D{
-    int x;
-    int y;
+    float x;
+    float y;
 };
 
 void calc_vector() {
-    int ax, ay, bx, by;
+    float ax, ay, bx, by;
 
     fprintf(stdout, "Type the values for point A and B\n");
     fprintf(stdout, "Ax: ");
@@ -28,7 +28,21 @@ void calc_vector() {
 }
 
 void calc_vector_norm() {
-    fprintf(stdout, "Working on it\n");
+    Point2D vector;
+
+    fprintf(stdout, "Type the value for the x component: ");
+    std::cin >> vector.x;
+    fprintf(stdout, "Type the value for the y component: ");
+    std::cin >> vector.y;
+    float x_sq = pow(vector.x, 2);
+    float y_sq = pow(vector.y, 2);
+
+    float vector_norm = sqrt(x_sq + y_sq);
+
+    fprintf(stdout, "The norm of the vector (%.2f, %.2f) is: %.2f\n",
+	    vector.x,
+	    vector.y,
+	    vector_norm);
 }
 
 int main() {
